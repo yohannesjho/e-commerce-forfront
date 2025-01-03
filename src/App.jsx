@@ -5,17 +5,33 @@ import Products from './pages/Products'
 import ProductDetails from './pages/ProductDetails'
 import About from './pages/About'
 import Contacts from './pages/Contacts'
+import { useEffect, useState } from 'react'
 
 function App() {
+  const [products, setProducts] = useState(null)
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch('https://e-commerce-backend-dhot.onrender.com/api/user/products')
+
+      const data = await response.json()
+      setProducts(data)
+
+      console.log(data)
+    }
+
+    fetchProducts()
+  }, [])
+console.log(products)
   return (
     <>
       <Router>
         <Layout>
           <Routes>
-            <Route path='/' element={<Home />}></Route>
+            <Route path='/' element={<Home products={products} />}></Route>
             <Route path='/products' element={<Products />}></Route>
             <Route path='/product' element={<ProductDetails />}></Route>
-            <Route path='/about'  element={<About />}></Route>
+            <Route path='/about' element={<About />}></Route>
             <Route path="contact" element={<Contacts />}></Route>
 
           </Routes>

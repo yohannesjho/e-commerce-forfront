@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Header = () => {
   const [ searchClicked, setSearchClicked ] = useState(false)
 
-  console.log(searchClicked)
+ 
   return (
     <header className='bg-gray-500  text-white'>
       <div className='flex justify-between items-center px-8 py-6 '>
