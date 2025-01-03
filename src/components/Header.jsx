@@ -8,7 +8,7 @@ const Header = () => {
 
   console.log(searchClicked)
   return (
-    <header className='bg-gray-500 mx-auto text-white'>
+    <header className='bg-gray-500  text-white'>
       <div className='flex justify-between items-center px-8 py-6 '>
         <div>
           <a href='/' className='text-2xl font-bold '>
