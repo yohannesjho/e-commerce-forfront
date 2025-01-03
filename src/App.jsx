@@ -1,12 +1,16 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 function App() {
   return (
     <>
-      <Layout>
-        <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
-      </Layout>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path='/' element={<Home />}></Route>
+          </Routes>
+
+        </Layout>
+      </Router>
 
     </>
   )
