@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import Cards from '../components/Cards'
 
 const Home = ({products}) => {
-    console.log(products)
+    
     
     const [sucess, setSuccess ] = useState(false)
     const [ error, setError ] = useState(null)
@@ -15,7 +16,7 @@ const Home = ({products}) => {
                     <p className='md:text-2xl font-semibold text-center'>your stop-one shopping center</p>
                 </div>
             </div>
-
+            <Cards products={products} />
         </div>
     )
 }

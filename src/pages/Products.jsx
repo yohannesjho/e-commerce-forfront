@@ -1,8 +1,11 @@
 import React from 'react'
+import Cards from '../components/Cards'
 
-const Products = () => {
+const Products = ({ products }) => {
   return (
-    <div>Products</div>
+    <div>
+        <Cards source = "products" products={ products }/>
+    </div>
   )
 }
 

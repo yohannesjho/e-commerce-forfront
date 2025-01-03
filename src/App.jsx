@@ -16,20 +16,19 @@ function App() {
 
       const data = await response.json()
       setProducts(data)
-
-      console.log(data)
+        
     }
 
     fetchProducts()
   }, [])
-console.log(products)
+ 
   return (
     <>
       <Router>
         <Layout>
           <Routes>
             <Route path='/' element={<Home products={products} />}></Route>
-            <Route path='/products' element={<Products />}></Route>
+            <Route path='/products' element={<Products products={products} />}></Route>
             <Route path='/product' element={<ProductDetails />}></Route>
             <Route path='/about' element={<About />}></Route>
             <Route path="contact" element={<Contacts />}></Route>
