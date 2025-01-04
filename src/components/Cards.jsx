@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../contexts/cartContext';
 
 const Cards = ({ source = 'home', products }) => {
+    console.log(products)
     const { addToCart } = useCart()
 
     const validProducts = Array.isArray(products) ? products : [];
