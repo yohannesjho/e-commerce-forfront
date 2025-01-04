@@ -3,7 +3,7 @@ import { useCart } from '../contexts/cartContext'
 
 const Cart = () => {
     const { cartItems, removeFromCart, clearCart } = useCart()
-    console.log(cartItems)
+   
 
     const handleRemove = (id) => {
         removeFromCart(id)
@@ -20,9 +20,9 @@ const Cart = () => {
 
                     <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 px-12 py-8 border'>
                         {cartItems.map((item) => (
-                            <div key={item.id} className=''>
+                            <div key={item.id} className=' rounded-lg shadow-lg'>
                                 {/* Image */}
-                                <div className='border w-32 h-32'>
+                                <div className=' w-32 h-32'>
                                     {item.img && item.img.length > 0 ? (
                                         <img src={item.img[0]} className='w-full h-full object-cover' alt={item.name} />
                                     ) : (

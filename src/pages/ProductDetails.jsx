@@ -24,7 +24,7 @@ const ProductDetails = () => {
 
 
     const handleAddToCart = (product) => {
-        console.log(product)
+       
 
         addToCart(
             {

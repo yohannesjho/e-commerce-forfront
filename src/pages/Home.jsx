@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Cards from '../components/Cards'
 
-const Home = ({products}) => {
+const Home = ({ products}) => {
     
-    
-    const [sucess, setSuccess ] = useState(false)
-    const [ error, setError ] = useState(null)
 
-   
+
+    const [sucess, setSuccess] = useState(false)
+    const [error, setError] = useState(null)
+
+
     return (
         <div>
             <div className='bg-gray-800 h-48 text-white flex justify-center items-center'>
