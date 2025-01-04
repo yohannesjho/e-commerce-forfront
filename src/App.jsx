@@ -16,12 +16,13 @@ function App() {
 
       const data = await response.json()
       setProducts(data)
-        
+       
+
     }
 
     fetchProducts()
   }, [])
- 
+
   return (
     <>
       <Router>
@@ -29,10 +30,9 @@ function App() {
           <Routes>
             <Route path='/' element={<Home products={products} />}></Route>
             <Route path='/products' element={<Products products={products} />}></Route>
-            <Route path='/product' element={<ProductDetails />}></Route>
+            <Route path='/product/:productId' element={<ProductDetails />}></Route>
             <Route path='/about' element={<About />}></Route>
             <Route path="contact" element={<Contacts />}></Route>
-
           </Routes>
 
         </Layout>

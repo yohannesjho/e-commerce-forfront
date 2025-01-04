@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Cards = ({ source = 'home', products }) => {
     console.log(products)
@@ -11,7 +12,7 @@ const Cards = ({ source = 'home', products }) => {
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 px-32 py-24'>
                 {newProducts.map((product) => (
 
-                    <div key={product._id} className='border rounded-md space-y-4 pb-4'>
+                    <Link to={`/product/${product._id}`} key={product._id} className='border rounded-md space-y-4 pb-4'>
                         <div className='h-72'>
                             <img src={product.imgUrls[0]} className='w-full h-full object-cover' />
                         </div>
@@ -21,7 +22,7 @@ const Cards = ({ source = 'home', products }) => {
                             <button className='bg-purple-500 px-2 py-1 rounded-md text-white hover:bg-purple-200 duration-300'>Add to cart</button>
                         </div>
 
-                    </div>
+                    </Link>
                 ))}
 
             </div>
