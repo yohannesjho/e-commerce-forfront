@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Cards from '../components/Cards'
 
 const Products = ({ products }) => {
+   
     const [searchQuery, setSearchQuery] = useState('')
     const [filteredProducts, setFilteredProducts] = useState([])
 

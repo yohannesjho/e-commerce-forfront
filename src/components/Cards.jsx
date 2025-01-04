@@ -27,7 +27,7 @@ const Cards = ({ source = 'home', products }) => {
         <div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 px-32 py-24 '>
                 {newProducts.map((product) => (
-                    <div className='border space-y-4 pb-4 rounded-lg shadow-lg'>
+                    <div key={product.id} className='border space-y-4 pb-4 rounded-lg shadow-lg'>
                         <Link to={`/product/${product._id}`} key={product._id} className=' rounded-md space-y-4 pb-4'>
                             <div className='h-72'>
                                 <img src={product.imgUrls[0]} className='w-full h-full object-cover' />
