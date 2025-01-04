@@ -7,6 +7,7 @@ import About from './pages/About'
 import Contacts from './pages/Contacts'
 import { useEffect, useState } from 'react'
 import Cart from './pages/Cart'
+import { CartProvider } from './contexts/cartContext'
 
 function App() {
   const [products, setProducts] = useState(null)
@@ -17,7 +18,7 @@ function App() {
 
       const data = await response.json()
       setProducts(data)
-       
+
 
     }
 
@@ -26,20 +27,20 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Layout>
-          <Routes>
-            <Route path='/' element={<Home products={products} />}></Route>
-            <Route path='/products' element={<Products products={products} />}></Route>
-            <Route path='/product/:productId' element={<ProductDetails />}></Route>
-            <Route path='/about' element={<About />}></Route>
-            <Route path="/contact" element={<Contacts />}></Route>
-            <Route path="/cart" element={<Cart />}></Route>
-          </Routes>
-
-        </Layout>
-      </Router>
-
+      <CartProvider>
+        <Router>
+          <Layout>
+            <Routes>
+              <Route path='/' element={<Home products={products} />}></Route>
+              <Route path='/products' element={<Products products={products} />}></Route>
+              <Route path='/product/:productId' element={<ProductDetails />}></Route>
+              <Route path='/about' element={<About />}></Route>
+              <Route path="/contact" element={<Contacts />}></Route>
+              <Route path="/cart" element={<Cart />}></Route>
+            </Routes>
+          </Layout>
+        </Router>
+      </CartProvider>
     </>
   )
 }

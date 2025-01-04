@@ -1,24 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { useCart } from '../contexts/cartContext'
+
 
 const ProductDetails = () => {
     const { productId } = useParams()
     const [product, setProduct] = useState({})
+    const { addToCart } = useCart()
 
     useEffect(() => {
         const fetchProduct = async () => {
             const response = await fetch(`https://e-commerce-backend-dhot.onrender.com/api/user/products/${productId}`)
-            console.log(response)
+
 
             const data = await response.json()
 
             setProduct(data)
-            console.log(data)
+
         }
 
         fetchProduct()
     }, [productId])
-    console.log(product)
+
+
+    const handleAddToCart = (product) => {
+        console.log(product)
+
+        addToCart(
+            {
+                id: product._id,
+                name: product.name,
+                price: product.price,
+                img: product.imgUrls,
+                description: product.description
+            }
+
+        )
+    }
     return (
         <div>
             <div className="px-8 py-6 space-y-4 sm:space-y-0 sm:flex justify-between">
