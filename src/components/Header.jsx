@@ -26,10 +26,10 @@ const Header = () => {
           </a>
         </div>
         <nav className='hidden md:flex space-x-4'>
-          <a href='/'>Home</a>
-          <a href='/products'>Products</a>
-          <a href='/about'>About</a>
-          <a href='/contact'>Contacts</a>
+          <Link to='/' >Home</Link>
+          <Link to='/products'  >Products</Link>
+          <Link to='/about'>About</Link>
+          <Link to='/contacts'>Contacts</Link>
         </nav>
         <div className='flex gap-4'>
           <SignedOut>
