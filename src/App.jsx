@@ -10,29 +10,15 @@ import Cart from './pages/Cart'
 import { CartProvider } from './contexts/cartContext'
 
 function App() {
-  const [products, setProducts] = useState(null)
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch('https://e-commerce-backend-dhot.onrender.com/api/user/products')
-
-      const data = await response.json()
-      setProducts(data)
-
-
-    }
-
-    fetchProducts()
-  }, [])
-
+ 
   return (
     <>
       <CartProvider>
         <Router>
           <Layout>
             <Routes>
-              <Route path='/' element={<Home products={products} />}></Route>
-              <Route path='/products' element={<Products products={products} />}></Route>
+              <Route path='/'  element={<Home />}></Route>
+              <Route path='/products' element={<Products />}></Route>
               <Route path='/product/:productId' element={<ProductDetails />}></Route>
               <Route path='/about' element={<About />}></Route>
               <Route path="/contact" element={<Contacts />}></Route>
