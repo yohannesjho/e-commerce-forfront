@@ -3,7 +3,8 @@ import { useCart } from '../contexts/cartContext'
 
 const Cart = () => {
     const { cartItems, removeFromCart, clearCart } = useCart()
-   
+    console.log(cartItems)
+
 
     const handleRemove = (id) => {
         removeFromCart(id)
@@ -12,6 +13,15 @@ const Cart = () => {
     const handleClearCart = () => {
         clearCart()
     }
+
+    const handlePlaceOrder = async () => {
+        try {
+
+        } catch (error) {
+
+        }
+    }
+    let price;
     return (
         <>
             {cartItems && cartItems.length > 0 ? (
@@ -58,8 +68,11 @@ const Cart = () => {
 
 
                     </div>
-                    <div className='m-4 '>
-                        <button onClick={() => {handleClearCart()}} className='bg-red-500 px-2 py-1 rounded-md hover:bg-red-400 text-white duration-300'>clear cart</button>
+                    <div className='m-4 flex space-x-4 '>
+                        <p className='bg-purple-500  px-2 py-1 rounded-md text-white'>Total cost: {cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0)}</p>
+                        <button onClick={() => { handleClearCart() }} className='bg-red-500 px-2 py-1 rounded-md hover:bg-red-400 text-white duration-300'>clear cart</button>
+
+                        <button onClick={handlePlaceOrder} className='bg-green-500 px-2 py-1 rounded-md hover:bg-green-400 text-white duration-300 '>Place order</button>
                     </div>
                 </div>
             ) : (
